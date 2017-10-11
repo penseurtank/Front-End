@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration form</title>
+	<link rel="stylesheet" type="text/css" href="registration.css">
+</head>
+
+
+<body class="body">
+		<form class="form-registration">
+			<fieldset class="fieldset-registration" style="width: 670px">
+				<legend class="legend-registration" id="reg-form"> Registration Form&nbsp </legend>
+
+			<!-- Personal Infromation (PI) -->
+			
+			<fieldset class="fieldset-PI" style="width: 650px">
+				<legend class="legend-PI">Personal Information</legend>
+				<table class="table-PI">
+					<tr class="tr-PI">
+						<td class="td-PI">
+							<label class="label-PI">First Name : </label>
+						</td>
+						<td><input class="input" type="text" id="fname" name="name" placeholder="First-Name"></td>
+						<td>&nbsp&nbsp&nbsp&nbsp&nbsp<label class="label-PI">Last Name : </label></td>
+						<td class="td-PI">
+							<input class="input" type="text" id="lname" name="name" placeholder="Last-Name">
+						</td>
+
+					</tr>
+					<tr class="tr-PI">
+						<td class="td-PI">
+							<label class="label-PI">Parents F_Name : </label>
+						</td>
+						<td><input class="input" type="text" id="FMfname" name="name" placeholder="First-Name"></td>
+						
+						
+						<td class="td-PI">
+							&nbsp&nbsp&nbsp&nbsp&nbsp<label class="label-PI">Parents L_Name : </label>
+						</td>
+						<td><input class="input" type="text" id="FMlname" name="name" placeholder="Last-Name"></td>
+					</tr>
+					<tr class="tr-PI">
+						<td class="td-PI">
+							<label class="label-PI">Date-Of-Birth : </label>
+						</td>
+						<td><input class="input" type="date" id="dob" name="DOB"></td>
+						<td class="td-PI">
+							&nbsp&nbsp&nbsp&nbsp&nbsp<label class="label-PI">Gender : </label>
+						</td>
+						<td>Male  <input type="radio"  id="M-radio" name="Radio">
+							Female  <input type="radio"  id="F-radio" name="Radio"></td>
+					</tr>
+				</table>
+				
+			</fieldset><!-- end fieldset line which is related to Personal Information -->
+
+
+
+
+			<!-- Contact Information (CI) -->
+
+			<br>
+			<fieldset class="fieldset-CI" style="width: 650px">
+				<legend class="legend-CI">Contact Information</legend>
+				<table class="table-CI">
+					<tr class="tr-CI">
+						<td class="td-CI">
+							<label class="label-CI">Phone No : </label>
+						</td>
+						<td style="padding-left: 45px;"><input class="input" type="text" id="telephone" name="phone"></td>
+						<td class="td-CI">
+							&nbsp&nbsp&nbsp&nbsp&nbsp<label class="label-CI">Mobile No : </label>
+						</td>
+						<td style="padding-left: 10px;"><input class="input" type="text" id="mobile" name="Mobile"></td>
+					</tr>
+					<tr class="tr-CI">
+						<td class="td-CI">
+							<label class="label-CI">Email-ID : </label>
+						</td>
+						<td style="padding-left: 45px;"><input class="input" type="email" id="email1" name="email" placeholder=" abc@gmail.com "></td>
+						<td class="td-CI">
+							&nbsp&nbsp&nbsp&nbsp&nbsp<label class="label-CI">Conf-Email-ID : </label>
+						</td>
+						<td style="padding-left: 10px;"><input class="input" type="email" id="email2" name="email" placeholder=" Conform-email "></td>
+					</tr>
+				</table>				
+			</fieldset><!-- end fieldset line which is related to Contact Information -->
+
+
+
+			<!--Create Password -->
+			<br>
+			<fieldset class="fieldset-password" style="width: 650px">
+				<legend class="legend-password"> Create Password </legend>
+
+				<table class="table-password">
+					<tr class="tr-password">
+						<td class="td-password">
+							<label class="label-password">Password :</label>
+						
+						</td>
+						<td style="padding-left: 45px;"><input class="input" type="Password" class="pass" name="Password" id="pass1" onkeyup="checkPasswordStrength()" placeholder="Password">
+							
+						<td class="td-password">
+							&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<label class="label-password">Conf.-Password :</label>
+							
+						</td>
+						<td>&nbsp<input class="input" type="Password" class="pass" name="Password" id="pass2" placeholder="Conf-Password"></td>
+						
+					</tr>
+					<tr>
+						<td></td>
+						<td><label id="passLabel" text="label"></label></td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					
+				</table>
+
+			</fieldset><!-- end fieldset line which is related to Password Strength -->
+
+			<br>
+			<input type="button" value="Submit" id="button" name="button" onkeypress="validateRegistration();">
+
+</fieldset><!-- end fieldset line which is related to Registration Page -->
+
+
+
+
+
+			<script type="text/javascript">
+				function checkPasswordStrength() {
+					// body...
+					var passwordTextBox=document.getElementById("pass1");
+					var password = passwordTextBox.value;
+					var specialCharacters = "!@#$%^&~?_*+-|";
+
+					var passwordScore = 0;
+
+					for(var i=0;i<password.length;i++)
+					{
+						if(specialCharacters.indexOf(password.charAt(i))>-1){
+							passwordScore +=20;
+						}
+					}
+					if(/[a-z]/.test(password))
+					{
+						passwordScore += 20;
+					}
+					if (/[A-Z]/.test(password)) 
+					{
+						passwordScore += 20;
+					}
+					if (/[\d]/.test(password)) 
+					{
+						passwordScore += 20;
+					}
+					if (password.length>=8) 
+					{
+						passwordScore += 20;
+					}
+
+					var strength = "";
+					var backgroundColor = "";
+
+					if(passwordScore >= 100)
+					{
+						strength = "Strong";
+						backgroundColor = "green";
+					}
+					else if (passwordScore >= 80) 
+					{
+						strength = "Medium";
+						backgroundColor = "grey";
+					}
+					else if (passwordScore >=60) 
+					{
+						strength = "Weak";
+						backgroundColor = "maroon";
+					}
+					else 
+					{
+						strength = "Very-Weak";
+						backgroundColor = "red";
+					}
+
+
+
+
+					document.getElementById("passLabel").innerHTML = strength;
+					passwordTextBox.style.color = "white";
+					passwordTextBox.style.backgroundColor = backgroundColor;
+
+
+				}
+			</script>
+			
+		</form>
+</body>
+</html>
