@@ -1,0 +1,67 @@
+
+/*  CSS Part of Registration from....*/
+
+.form-registration
+{
+	position: absolute;
+	padding-top: 3%;
+	padding-left: 23%;
+}
+.input{
+	border-color: #777b82;
+	border-top:none;
+	border-right: none;
+	border-left: none;
+}
+
+.legend-registration
+{
+	color: blue;
+	 font-style: oblique;
+	font-size: 1.875em;
+	font-weight: bolder;
+}
+
+#reg-form
+{
+	text-align: center;
+}
+
+
+
+
+.legend-PI
+{
+	color: black;
+	 font-style: normal;
+	font-size: 0.875em;
+	font-weight: bolder;
+}
+.legend-CI
+{
+	color: black;
+	 font-style: normal;
+	font-size: 0.875em;
+	font-weight: bolder;
+}
+.legend-password
+{
+	color: black;
+	 font-style: normal;
+	font-size: 0.875em;
+	font-weight: bolder;
+}
+
+#button
+{
+	background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin-left: 275px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 12px;
+}
